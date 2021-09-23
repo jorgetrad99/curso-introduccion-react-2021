@@ -1,26 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+/* import logo from './logo.svg'; */
+/* import './App.css'; */
+import React from 'react';
+import { TodoCounter } from './TodoCounter';
+import { CreateTodoButton } from './CreateTodoButton';
+import { TodoItem } from './TodoItem';
+import { TodoList } from './TodoList';
+import { TodoSearch } from './TodoSearch';
 
-function App(props) {
+
+const todos = [
+  { text: 'Cortar Cebolla', completed: false },
+  { text: 'Tomar el Curso de Introducción a React', completed: false },
+  { text: 'Llorar con la Llorona', completed: false }
+]
+
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {/* Learn React with Platzi */}
-          { props.saludo }
-          { props.children }
-        </a>
-      </header>
-    </div>
+    <React.Fragment>  {/* //Es una etiqueta "transparente" porque react pide que retornnemos solo una etiqueta por componente */}
+      <TodoCounter />
+      <TodoSearch />
+      
+      <TodoList>
+        {todos.map(todo => (
+          <TodoItem key={todo.text} text={todo.text} />
+        ))}
+      </TodoList>
+      <CreateTodoButton />
+    </React.Fragment>
   );
 }
 
