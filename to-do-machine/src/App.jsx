@@ -1,30 +1,34 @@
-/* import logo from './logo.svg'; */
-/* import './App.css'; */
 import React from 'react';
 import { TodoCounter } from './TodoCounter';
-import { CreateTodoButton } from './CreateTodoButton';
-import { TodoItem } from './TodoItem';
-import { TodoList } from './TodoList';
 import { TodoSearch } from './TodoSearch';
-
+import { TodoList } from './TodoList';
+import { TodoItem } from './TodoItem';
+import { CreateTodoButton } from './CreateTodoButton';
+// import './App.css';
 
 const todos = [
-  { text: 'Cortar Cebolla', completed: false },
-  { text: 'Tomar el Curso de Introducción a React', completed: false },
-  { text: 'Llorar con la Llorona', completed: false }
-]
+  { text: 'Cortar cebolla', completed: true },
+  { text: 'Tomar el cursso de intro a React', completed: true },
+  { text: 'Llorar con la llorona', completed: false },
+  { text: 'LALALALAA', completed: false },
+];
 
 function App() {
   return (
-    <React.Fragment>  {/* //Es una etiqueta "transparente" porque react pide que retornnemos solo una etiqueta por componente */}
+    <React.Fragment>
       <TodoCounter />
       <TodoSearch />
-      
+
       <TodoList>
         {todos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text} />
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
         ))}
       </TodoList>
+
       <CreateTodoButton />
     </React.Fragment>
   );
