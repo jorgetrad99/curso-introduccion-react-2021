@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
@@ -6,23 +6,23 @@ import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
 
 function AppUI({
-    totalTodos,
-    completedTodos,
-    searchValue, 
-    setSearchValue,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
+  totalTodos,
+  completedTodos,
+  searchValue,
+  setSearchValue,
+  searchedTodos,
+  completeTodo,
+  deleteTodo,
 }) {
-    return (
-        <React.Fragment>
+  return (
+    <React.Fragment>
       <TodoCounter
-        total = { totalTodos }
-        completed = { completedTodos }
+        total={totalTodos}
+        completed={completedTodos}
       />
       <TodoSearch
-        searchValue= { searchValue }
-        setSearchValue= { setSearchValue }
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
       />
 
       <TodoList>
@@ -31,19 +31,15 @@ function AppUI({
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => {
-              completeTodo(todo.text)
-            }}
-            onDelete={() => {
-              deleteTodo(todo.text)
-            }}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
           />
         ))}
       </TodoList>
 
       <CreateTodoButton />
     </React.Fragment>
-    );
+  );
 }
 
 export { AppUI };
